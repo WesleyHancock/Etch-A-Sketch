@@ -7,3 +7,19 @@ for(let i = 0; i < 256; i++) {
     container.appendChild(divs);
 };
 
+// CREATE A GRID USING FLEXBOX
+container.style.display = 'flex';
+container.style.flexDirection = 'row';
+container.style.flexWrap = 'wrap';
+container.style.maxWidth = '480px';
+container.style.maxHeight = '480px';
+
+
+let squares = document.querySelectorAll('.squares');
+console.log(squares);
+
+squares.forEach(function(square) {
+    square.style.outline = '1px solid black';
+    square.style.width = '30px';
+    square.style.height = '30px';
+});
