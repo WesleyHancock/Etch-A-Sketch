@@ -16,10 +16,17 @@ container.style.maxHeight = '480px';
 
 
 let squares = document.querySelectorAll('.squares');
-console.log(squares);
 
 squares.forEach(function(square) {
     square.style.outline = '1px solid black';
     square.style.width = '30px';
     square.style.height = '30px';
+    square.addEventListener('mouseover', function() {
+        // console.log('entered');
+        this.classList.add('black');
+    });
+    // square.addEventListener('mouseout', function() {
+    //     console.log('left');
+    //     // this.classList.toggle('black');
+    // });
 });
