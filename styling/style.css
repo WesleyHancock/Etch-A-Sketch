@@ -20,17 +20,18 @@ h1 {
     margin-bottom: 60px;
 }
 
-.canvas {
-    display: flex;
-    gap: 30px;
-}
-
 .container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.1);
+    gap: 30px;
+}
 
+.canvas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .black {

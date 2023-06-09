@@ -1,96 +1,53 @@
 let container = document.querySelector('.container');
 
-// CHOICE SLIDER
+let canvas = document.querySelector('.canvas');
+let canvasWidth = canvas.style.width = '480px';
+let canvasHeight = canvas.style.height = '480px';
+
 let sliderValue = document.querySelector('#sliderValue');
+
 let slider = document.querySelector('#slider');
-let input = null;
+let value = null;
 
-// CREATE A GRID USING FLEXBOX
-let containerWidth = container.style.maxWidth = '480px';
-let containerHeight = container.style.maxHeight = '480px';
+function retrieveSliderValue(x) {
 
-// Display the value to the slider
-slider.addEventListener('input', function() {
-    sliderValue.innerText = `${this.value} X ${this.value}`;
-    grid(slider.value);
-});
+    // first need to clear old drawings
+    // document.querySelectorAll('div .square').remove();
+    canvas.innerText = '';
 
-function grid(a) {
-    let totSquares = parseInt(a * a);
 
-    for(let i = 0; i < totSquares; i++) {
+    // Create amount of divs
+    for(let i = 0; i < x * x; i++) {
         let divs = document.createElement('div');
         divs.classList.add('squares');
-        container.appendChild(divs);
-        let squareWidth = parseInt(containerWidth) / totSquares;
-        let squareHeight = parseInt(containerHeight) / totSquares;
-    };
+        divs.style.width = parseInt(canvasWidth) / x + 'px';
+        divs.style.height = parseInt(canvasHeight) / x + 'px';
+        divs.style.outline = '0.1px solid black';
+        canvas.appendChild(divs);
+    }
 
     let squares = document.querySelectorAll('.squares');
-
-
     squares.forEach(function(square) {
-        square.style.outline = '0.1px solid black';
-
-        square.style.width = squareWidth + 'px';
-        square.style.height = squareHeight + 'px';
-        // square.addEventListener('mouseover', function() {
-        //     // console.log('entered');
-        //     this.classList.add('black');
-        // });
+        square.addEventListener('dragover', function() {
+            // console.log('entered');
+            this.classList.add('black');
+        });
         // square.addEventListener('mouseout', function() {
         //     console.log('left');
         //     // this.classList.toggle('black');
         // });
     });
 
-};
+    return;
 
-// let sliderInput = function() {
-//     // percentage formula to make the min value 0 and the max 100
-//     // let value = (this.value - this.min) / (this.max-this.min) * 100;
-//     // 16 = 0
-//     // 64 = 100
-//     sliderValue.innerText = this.value;
-//     return this.value;
-// }
+}
 
-let log = function(a) {
-    // console.log(parseInt(a));
-    let num = parseInt(a);
-    let totalDivs = a * a;
-    // for(let i = 256; i < totalDivs; i++) {
-    //     let divs = document.createElement('div');
-    //     divs.classList.add('squares');
-    //     container.appendChild(divs);
-    // };
-};
+function displaySlider() {
+    sliderValue.innerText = `${slider.value} X ${slider.value}`;
+    value = slider.value;
+    retrieveSliderValue(value);
+}
 
-
-// need sliderInput * sliderInput
-
-
-// CREATE 16 X 16 DIVS OR 256 DIVS
-// for(let i = 0; i < 256; i++) {
-//     let divs = document.createElement('div');
-//     divs.classList.add('squares');
-//     container.appendChild(divs);
-// };
-
-
-// let squares = document.querySelectorAll('.squares');
-
-// squares.forEach(function(square) {
-//     square.style.outline = '1px solid black';
-//     square.style.width = '30px';
-//     square.style.height = '30px';
-//     // square.addEventListener('mouseover', function() {
-//     //     // console.log('entered');
-//     //     this.classList.add('black');
-//     // });
-//     // square.addEventListener('mouseout', function() {
-//     //     console.log('left');
-//     //     // this.classList.toggle('black');
-//     // });
-// });
+// Display slider values on the slider
+slider.addEventListener('change', displaySlider);
 
