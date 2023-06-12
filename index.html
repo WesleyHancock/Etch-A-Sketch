@@ -21,16 +21,31 @@
 
     <div class="container">
 
-        <div class="slider-container">
-            <div>
-                <span id="sliderValue">0 X 0</span>
+        <div class="menu">
+
+            <div class="slider-container">
+                <h2>Select canvas size</h2>
+                <div>
+                    <span id="sliderValue">0 X 0</span>
+                </div>
+                <input type="range" min="0" max="64" value="0" id="slider" smooth="yes">
             </div>
-            <input type="range" min="0" max="64" value="0" id="slider" smooth="yes">
+
+            <div class="color">
+                <label for="colorPicker"><h2>Pick a color</h2></label>
+                <input type="color" id="colorPicker" name="colorPicker" value="#ff0000">
+            </div>
+
+            <div class="clearContainer">
+                <button class="clear">Clear</button>
+            </div>
+
         </div>
 
         <div class="canvas"></div>
 
     </div>
+
     
 </body>
 </html>

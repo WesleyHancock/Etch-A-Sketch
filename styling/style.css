@@ -27,6 +27,36 @@ h1 {
     gap: 30px;
 }
 
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px;
+    border-radius: 10px;
+    gap: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.slider-container, .color {
+    border-bottom: 2px solid rgb(156, 156, 156);
+    width: 100%;
+}
+
+#colorPicker:hover {
+    transform: scale(1.1);
+}
+
+#sliderValue {
+    font-size: 26px;
+}
+
+#slider {
+    margin-bottom: 20px;
+
+}
+
 .canvas {
     display: flex;
     flex-direction: row;
@@ -34,6 +64,39 @@ h1 {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.black {
-    background-color: rgb(0, 0, 0);
+.menu h2 {
+    margin-bottom: 10px;
+}
+
+input[type='color'] {
+    -webkit-appearance: none;
+    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+  
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px;
+}
+
+.clear {
+    font-size: 23px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    transition: all ease;
+}
+
+.clear:hover {
+    transform: scale(1.1);
 }
